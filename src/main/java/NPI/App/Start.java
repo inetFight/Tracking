@@ -240,11 +240,6 @@ public class Start {
 		
 		writerResult.close();
 		
-		CompareModel compare = new CompareModel("20600000467159", "Відправлення отримано", "9", "additional", "123", "123123", 
-				"", "", "", "", "", 
-				"", "", "", "", "", 
-				"", "9", "CargoReturn", "", "");
-		newLogicCompare.add(compare);
 		NewLogicAndWriteFile.compare(newLogicCompare);
 //		Frame.textArea.append("Закончили колдовство!\n");
 		Frame.textArea.getDocument().insertString(0,"Закончили колдовство!\n",null);
