@@ -149,6 +149,7 @@ public class Frame {
 		return file_path_save;
 		
 	}
+	//Получаем статус чек бокса
 	public static boolean getStatusShort(){
 		return shortVersion;
 	}
