@@ -145,6 +145,7 @@ public class Frame {
 		return file_path_open;
 		
 	}
+	//Путь к файлу для сохранения
 	public static String getFilePathSave(){
 		return file_path_save;
 		
