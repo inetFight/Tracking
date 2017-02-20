@@ -140,7 +140,7 @@ public class Frame {
 		
 		
 	}
-	
+	//Путь к файлу для трекинга
 	public static String getFilePath(){
 		return file_path_open;
 		
