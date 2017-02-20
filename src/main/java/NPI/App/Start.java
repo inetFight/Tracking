@@ -34,7 +34,7 @@ public class Start {
 		
 		PrintWriter writerResult = new PrintWriter(
 				new OutputStreamWriter(new FileOutputStream(Frame.getFilePathSave(), true), "UTF-8"));
-		NewLogicAndWriteFile.compare(newLogicCompare);
+		
 		LinkedHashSet file = FileReaderNPI.readFileToListByLine(Frame.getFilePath());
 		Iterator i = file.iterator();
 		List<String> firstEW = new ArrayList<String>();
@@ -239,8 +239,10 @@ public class Start {
 		}
 		
 		writerResult.close();
-		
+		if(Frame.getStatusShort()){
+			
 		NewLogicAndWriteFile.compare(newLogicCompare);
+		}
 //		Frame.textArea.append("Закончили колдовство!\n");
 		Frame.textArea.getDocument().insertString(0,"Закончили колдовство!\n",null);
 //		Frame.textArea.update(Frame.textArea.getGraphics());

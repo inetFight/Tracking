@@ -70,6 +70,9 @@ import javax.swing.border.Border;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.swing.JCheckBox;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
 
 public class Frame {
     private String info = "<html><p>1. Можно загружать только csv или txt файлы"
@@ -108,6 +111,7 @@ public class Frame {
     URL url1 = getClass().getClassLoader().getResource("всё.jpg");
     final ImageIcon icon = new ImageIcon(url1);
     private final JLabel lblByDmitriy = new JLabel("@ by Dmitriy Litvinov specially for NovaPoshta International");
+    private static boolean shortVersion = false;
     
 
 	/**
@@ -145,6 +149,9 @@ public class Frame {
 		return file_path_save;
 		
 	}
+	public static boolean getStatusShort(){
+		return shortVersion;
+	}
 	
 	/**
 	 * Initialize the contents of the frame.
@@ -152,7 +159,7 @@ public class Frame {
 	 * @throws IOException 
 	 */
 	private void initialize() throws URISyntaxException, IOException {
-		frame = new JFrame("Трекинг v 1.1.0");
+		frame = new JFrame("Трекинг v 1.2.0");
 		frame.getContentPane().setBackground(Color.WHITE);
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
@@ -235,7 +242,7 @@ public class Frame {
 		panel.add(scroll);
 		
 		
-		btnNewButton.setBounds(148, 119, 138, 52);
+		btnNewButton.setBounds(156, 119, 138, 52);
 		panel.add(btnNewButton);
 		
 		label_1 = new JLabel("<html>Номеров в этом<br><center>этапе</center></html>");
@@ -277,7 +284,7 @@ public class Frame {
 		});
 		Border emptyBorder = BorderFactory.createEmptyBorder();
 		btnNewButton_1.setBorder(emptyBorder);
-		btnNewButton_1.setBounds(296, 126, rightIcon.getIconWidth(), rightIcon.getIconHeight());
+		btnNewButton_1.setBounds(304, 130, rightIcon.getIconWidth(), rightIcon.getIconHeight());
 		
 		panel.add(btnNewButton_1);
 		
@@ -289,6 +296,19 @@ public class Frame {
 		});
 		btnChangeLog.setBounds(10, 622, 116, 23);
 		panel.add(btnChangeLog);
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("+ короткая версия");
+		chckbxNewCheckBox.setBackground(Color.WHITE);
+		chckbxNewCheckBox.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				if(e.getStateChange() == ItemEvent.SELECTED){
+					shortVersion = true;
+				}
+			}
+		});
+		chckbxNewCheckBox.setBounds(10, 110, 138, 23);
+		panel.add(chckbxNewCheckBox);
+		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(file_path_open == null){
