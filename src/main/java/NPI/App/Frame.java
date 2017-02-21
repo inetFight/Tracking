@@ -331,26 +331,20 @@ public class Frame {
 							
 							Start.track();
 						} catch (URISyntaxException | IOException | ParseException e1) {
-							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						} catch (BadLocationException e1) {
-							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
-//						JTextPane jtp = new JTextPane();
-//						jtp.setSize(new Dimension(480, 10));
-//					    jtp.setPreferredSize(new Dimension(480, jtp.getPreferredSize().height));
-//					    jtp.insertIcon(icon);
+
 						
 						BasicPlayer player = new BasicPlayer();
 						try {
 							
-//							URL url2 = getClass().getClassLoader().getResource("eralash.mp3").getFile();							
+						
 							stream = getClass().getClassLoader().getResourceAsStream("eralash.mp3");
 							 BufferedInputStream bis = new BufferedInputStream(stream);
 							player.open(bis);
 							
-//							player.open(new File(getClass().getClassLoader().getResource("eralash.mp3").getFile()));
 							
 							player.play();
 							Thread.sleep(1000);
